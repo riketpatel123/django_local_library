@@ -1,18 +1,23 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/booklist.css' %}">
+
     <h1>Book List</h1>
 
     {% if book_list %}
-    <ul>
 
-      {% for book in book_list %}
-      <li>
-        <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> ({{book.author}})
-      </li>
-      {% endfor %}
+            <div class="row ">
+                 {% for book in book_list %}
+                <div class="col-md-4 text-center">
+                    <a href="{{ book.get_absolute_url }}">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTncHPMNwBYtA6gCHxSvH3DTO09IOvgvCNOxEozvPhuPca2a_D6VQ" class="img-responsive" style="width:40%" alt="Image"><br>
+                        {{ book.title }}</a> ({{book.author}})
+                </div>
+                {% endfor %}
+            </div>
 
-    </ul>
     {% else %}
       <p>There are no books in the library.</p>
     {% endif %}       

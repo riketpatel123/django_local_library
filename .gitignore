@@ -31,6 +31,13 @@ wheels/
 *.manifest
 *.spec
 
+# Text backup files
+*.bak
+
+#Database
+*.sqlite3
+
+
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
